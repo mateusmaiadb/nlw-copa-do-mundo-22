@@ -1,6 +1,6 @@
-function createGame(player1, hour, player2, group ) {
+function createGame(player1, hour, player2, details) {
     return `
-    <p>${group}</p>
+    <p>${details}</p>
       <li>
         <img src="./assets/bandeiras-dos-países/icon=${player1}.svg" alt="Bandeira do ${player1}" />
         <strong>${hour}</strong>
@@ -29,9 +29,13 @@ document.querySelector("#app").innerHTML = `
         <img src="./assets/logo.svg" alt="Logo da NLW" />
     </header>
         <main id="cards">
-        ${createCard("24/11", "quinta", createGame('switzerland', '07:00', 'cameroon', 'Group G'))}
-        ${createCard("24/11", "quinta", createGame('brazil', '16:00', 'serbia', 'Group G'))}
-        ${createCard("28/11", "segunda", createGame('switzerland', '13:00', 'brazil', 'Grupo G'))}
-        ${createCard("02/12", "sexta", createGame('brazil', '16:00', 'cameroon' ,'Grupo G'))}
+        ${createCard("24/11", "quinta", createGame('switzerland', '07:00', 'cameroon', 'Group G')
+        + createGame('brazil', '16:00', 'serbia', '1ª Rodada'))}
+        
+        ${createCard("28/11", "segunda", createGame('cameroon', '07:00', 'serbia', 'Grupo G')
+        + createGame('brazil', '13:00', 'switzerland', '2ª Rodada'))}
+
+        ${createCard("02/12", "sexta", createGame('switzerland', '16:00', 'serbia', 'Grupo G')
+        + createGame('cameroon', '16:00', 'brazil', '3ª Rodada'))}
         </main>
 `
